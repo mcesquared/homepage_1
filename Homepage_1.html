@@ -1,0 +1,517 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100' rel='stylesheet' type='text/css'/>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <title>New Tab</title>
+</head>
+
+<body>
+<style>
+html, body, div, span {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+ 
+body {
+    font-family: "Roboto", sans-serif;
+    background-repeat: no-repeat;
+    }
+
+a {
+	text-decoration: none;
+	color: #f7f7f7;
+}
+ 
+#searchbar-container {
+    width: 100%;
+    height: 5vh;
+    margin-top: 2vh;
+ 
+    /*
+    -webkit-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.25);
+    box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.25);
+    */
+    text-align: center;
+    cursor: text;
+}
+ 
+#searchbar {
+    /* a lot of the weird stuff here is for centering */
+    border: none;
+ 
+    margin-left: auto;
+    margin-right: auto;
+    height: 4vh;
+    min-height: 50px;
+    position: relative;
+    top: 50%;
+    transform: translateX(-50%);
+    transform: translateY(-50%);
+ 
+    font-size: 18pt;
+    color: rgba(70, 80, 95, 1);
+ 
+    color: white;
+    border-bottom: 2px solid rgb(50, 60, 75);
+    opacity: 0.5;
+ 
+    background-color: rgba(55, 54, 53, 0.5);
+    -webkit-transition: width .5s ease;
+    width: 0px;
+    opacity: 0;
+}
+ 
+::selection {
+    color: white;
+    background-color: gray;
+}
+ 
+#searchbar:focus {
+    width: 30vw;
+    outline: none;
+    opacity: 1;
+}
+ 
+#searchbar:hover {
+    width: 30vw;
+    outline: none;
+    opacity: 1;
+}
+ 
+#searchbar::-webkit-search-cancel-button{
+    display:none;
+}
+ 
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  opacity: .75;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  opacity: .75;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  opacity: .75;
+}
+:-moz-placeholder { /* Firefox 18- */
+  opacity: .75;
+}
+ 
+#stripe {
+    margin-top: 100px;
+    text-align: center;
+}
+ 
+#clock {
+    color: white;
+    font-weight: 400;
+    font-size: 40pt;
+    display: inline;
+    text-align: center;
+    padding: 20px 40px 40px 40px;
+    transition: width .1s ease;
+    -webkit-transition: width .1s ease;
+}
+ 
+#date {
+    color: white;
+    font-weight: 400;
+    font-size: 12pt;
+ 
+}
+ 
+.card {
+    padding: 20px;
+    background-color: rgba( 55, 54, 53, 0.75 );
+    /*-webkit-box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.20);
+    -moz-box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.20);
+    box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.20);*/
+}
+
+.cardcolumn {
+    width: auto;
+    padding: 2px;
+    margin: 20px 20px;
+    background-color: rgba( 55, 54, 53, 0.75 );
+    /*background-color: rgba(55, 54, 53, 0.5);
+    -webkit-box-shadow: 0px 1px 4px 0px rgba(55, 54, 53, 0.5);
+    -moz-box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.20);
+    box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.20);*/
+    text-align: center;
+    float: left;
+    transition: box-shadow .1s ease;
+}
+
+.cardcolumn:hover {
+    border-bottom: 3px solid white;
+    /*-webkit-box-shadow: 0px 1px 7px 0px rgba(0,0,0,0.20);
+    -moz-box-shadow: 0px 1px 7px 0px rgba(0,0,0,0.20);
+    box-shadow: 0px 1px 7px 0px rgba(0,0,0,0.20);*/
+}
+
+
+#cards-holder {
+    display: table;
+    margin: auto;
+    margin-top: 0px;
+}
+	
+ul {
+    text-align: center;
+}
+	
+li {
+    list-style-type: none;
+    background-color: rgba( 235, 234, 234, 0.75 )
+    text-color: rgba( 36, 37, 38, 1 );
+    transition: height 0.5s, opacity 0.5s, padding 0.5s, background-color 0.5s;
+    height: 0px;
+    opacity: 0;
+}	
+
+ul, li {
+		padding: 0px;
+		margin: 0px;
+		color: #f7f7f7;
+}
+
+.titulo {
+		width: 200px;
+		background-color: rgba( 36, 37, 38, 1 );
+}
+        
+ul:hover li	{		
+		height: 25px;
+		opacity: 1;
+		padding: 5% !important;
+ 		text-color: rgba( 36, 37, 38, 1 );
+}
+	
+ul:hover .titulo {
+		background-color: rgba(48, 50, 51, 1 );
+		width: 200px;
+}
+	
+li:hover {
+		background-color: rgba(235, 234, 234, 0.5 );
+ 		text-color: rgba( 36, 37, 38, 1 );
+}
+</style>
+
+<script>
+
+
+</script>
+
+<div id="stripe">
+    <h1 id="clock" class="card"></h1>
+    <br/>
+    <span id="date"></span>
+</div>
+<br>
+
+<div id="searchbar-container">
+    <input type="search" placeholder = "-a -y -w -p -i -b" id="searchbar" onsubmit="search()" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" title="press TAB to focus"/>
+</div>
+
+<br><br>
+
+<div id="cards-holder">
+    <div class="cardcolumn">
+        <ul>
+            <div class="titulo">
+                music/video
+            </div>
+        <li>
+            <a href="https://play.spotify.com/">spotify</a>
+        </li>
+        <li>
+            <a href="https://www.reddit.com/r/listentothis/">listentothis</a>
+        </li>
+        <li>
+            <a href="https://www.youtube.com/">youtube</a>
+        </li>
+    </div>
+ 
+    <div class="cardcolumn">
+        <ul>
+            <div class="titulo">
+                social
+            </div>
+        <li>
+            <a href="https://www.facebook.com/">facebook</a>
+        </li>
+        <li>
+            <a href="https://www.reddit.com/">reddit</a>
+        </li>
+        <li>
+            <a href="https://www.pinterest.com/">pinterest</a>
+        </li>
+        <li>
+            <a href="https://twitter.com/">twitter</a>
+        </li>
+		<li>
+			<a href="https://plus.google.com/">google+</a>
+		</li>
+    </div>
+ 
+    <div class="cardcolumn">
+         <ul>
+            <div class="titulo">
+                aesthetics
+            </div>
+        <li>
+            <a href="http://boards.4chan.org/wg/">/wg/</a>
+        </li>
+        <li>
+            <a href="https://unsplash.com/">unsplash</a>
+        </li>
+        <li>
+            <a href="https://design.google.com/">google design</a>
+        </li>
+        <li>
+            <a href="http://imgur.com/user/promonk">imgur</a>
+        </li>
+        <li>
+            <a href="https://wallpaperscraft.com/">wallpaperscraft</a>
+        </li>
+    </div>
+    
+    <div class="cardcolumn">
+        <ul>
+            <div class="titulo">
+                learning
+            </div>
+        <li>
+            <a href="https://www.khanacademy.org/">khan academy</a>
+        </li>
+        <li>
+            <a href="http://www.w3schools.com/default.asp">w3schools</a>
+        </li>
+        <li>
+            <a href="https://www.duolingo.com/">duolingo</a>
+        </li>
+    </div>
+</div>
+
+<div id="cards-holder">
+    <div class="cardcolumn">
+        <ul>
+            <div class="titulo">
+                games
+            </div>
+        <li>
+            <a href="http://www.gamefaqs.com/">gamefaqs</a>
+        </li>
+        <li>
+            <a href="http://www.emuparadise.me/">emuparadise</a>
+        </li>
+    </div>
+    <div class="cardcolumn">
+        <ul>
+            <div class="titulo">
+                news
+            </div>
+        <li>
+            <a href="http://www.bbc.com/news">bbc news</a>
+        </li>
+        <li>
+            <a href="http://www.cnn.com/">cnn</a>
+        </li>
+        <li>
+            <a href="http://hosted.ap.org/dynamic/fronts/HOME?SITE=AP&SECTION=HOME">assoc. press front</a>
+        </li>
+    </div>
+    <div class="cardcolumn">
+        <ul>
+            <div class="titulo">
+                projects
+            </div>
+        <li>
+            <a href="http://hosted.ap.org/lineups/TOPHEADS.rss?SITE=AP&SECTION=HOME">ap top heads xml</a>
+        </li>
+    </div>
+    <div class="cardcolumn">
+        <ul>
+            <div class="titulo">
+                ...
+            </div>
+    </div>
+</div>
+
+<script>
+
+var bgArray = ["bg-1.jpg", "bg-2.jpg", "bg-3.jpg", "bg-4.jpg", "bg-5.jpg", "bg-6.jpg", "bg-7.jpg", "bg-8.jpg", "bg-9.jpg", "bg-10.jpg", "bg-11.jpeg", "bg-12.jpg", "bg-13.jpg"],
+    selectBG = bgArray[Math.floor(Math.random() * bgArray.length)];
+    
+document.body.style.backgroundImage = "url(" + selectBG + ")";
+
+function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    //america
+   var m = today.getMinutes();
+   var s = today.getSeconds();
+   m = checkTime(m);
+   s = checkTime(s);
+   document.getElementById('clock').innerHTML =
+   h + ":" + m + ":" + s;
+   var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+   if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+   return i;
+}
+ 
+startTime();
+ 
+//press TAB to focus on the search bar
+//modifiers have to be AT THE END
+searchinput = document.getElementById("searchbar");
+if(!!searchinput){
+   searchinput.addEventListener("keypress", function(a){
+       var key = a.keyCode;
+       if(key == 13){
+           var query = this.value;
+           search(query);
+       }
+   });
+}
+ 
+ 
+function search(query) {
+   console.log(query)
+   var original = query;
+   var modifier = query.substr(query.length-2);
+   query = query.slice(0, query.length-2);
+   switch (modifier) {
+       case "-a":
+           window.location = "http://www.amazon.com/s/ref=nb_sb_noss_1?url=search-alias%3Daps&field-keywords=" +
+           query.replace(" ", "+");
+           break;
+       case "-y":
+           window.location =
+               "https://www.youtube.com/results?search_query=" +
+               query.replace(" ", "+");
+           break;
+       case "-w":
+           window.location =
+               "https://en.wikipedia.org/w/index.php?search=" +
+               query.replace(" ", "%20");
+           break;
+ 
+        case "-p":
+            window.location =
+            "https://thepiratebay.org/search/" +
+            query.replace("+", "%2B");
+            break;
+            
+        case "-i":
+            window.location =
+            "https://www.ifixit.com/Search?query=" +
+            query.replace("+", "%2B");
+            break;
+            
+        case "-b":
+            window.location =
+            "http://www.bing.com/images/search?q=" +
+            query.replace("+", "%2B");
+            break;
+ 
+       default:
+           window.location="https://www.google.com/#q=" +
+                  original.replace(" ", "+");
+ 
+   }
+}
+ 
+$(document).bind('keydown', function(e) {
+   if (e.which == 16) {
+       document.getElementById("searchbar").focus();
+   }
+});
+ 
+ 
+/*weather shamelessly stolen from Austin Kilduff
+var city;
+var temp_curr;
+var temp_low;
+var temp_high;
+var description;
+var weatherCode;
+var humidity;
+$.when(
+    $.getJSON(json_url)
+    ).done( function(json_obj) {
+        city = json_obj["name"];
+        temp_curr = k_to_f(json_obj["main"]["temp"]);
+        temp_low = k_to_f(json_obj["main"]["temp_min"]);
+        temp_high = k_to_f(json_obj["main"]["temp_max"]);
+        description = json_obj["weather"][0]["description"];
+       weatherCode = Number(json_obj["weather"][0]["id"]);
+       humidity = Number(json_obj["main"]["humidity"])
+        insertWeatherInfo();
+    }
+);
+function k_to_f(kelvin) {
+    return ((9 / 5) * (kelvin - 273) + 32).toFixed(0);
+}
+function insertWeatherInfo() {
+    //$("#city").append(city.toLowerCase());
+    document.getElementById("description").innerHTML = (description.toLowerCase());
+    document.getElementById("temp_curr").innerHTML = ("it's " + temp_curr + "&deg; out");
+    $("#temp_low").append("lo " + temp_low + "&deg; /");
+    $("#temp_high").append("hi " + temp_high + "&deg;");
+   console.log("weather code: " + weatherCode);
+   console.log("humidity: " + humidity);
+   var disgusting = (weatherCode > 500 && weatherCode < 800);
+    if (disgusting || Number(temp_low) < 30 || Number(temp_high) > 95
+        || humidity > 75) {
+        document.getElementById("badness").innerHTML = ("disgusting");
+    } else {
+        document.getElementById("badness").innerHTML = ("not bad");
+    }
+        
+        <div class="cardcolumn">
+        <ul>
+            <div class="titulo">
+                weather
+            </div>
+        <li>
+            <a href="https://www.google.com/#q=weather" id="temp_curr">it's ??? out</a>
+        </li>
+        <li>
+            <a href="https://www.google.com/#q=weather" id="description">probly okay</a>
+        </li>
+        <li>
+            <a href="https://www.google.com/#q=weather" id="badness">weather here</a>
+        </li>
+    </div>
+}*/
+ 
+ 
+var monthNames = [
+  "January", "February", "March",
+  "April", "May", "June", "July",
+  "August", "September", "October",
+  "November", "December"
+];
+var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+ 
+var date = new Date();
+var day = date.getDate();
+var weekday = date.getDay();
+var monthIndex = date.getMonth();
+var year = date.getFullYear();
+ 
+document.getElementById("date").innerHTML = days[weekday] + ", " + monthNames[monthIndex] + " " + day;
+ 
+$("#searchbar-container").click(function() {
+    $("#searchbar").focus();
+})
+ 
+</script>
+</body>
+</html>
